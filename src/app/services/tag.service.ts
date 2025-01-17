@@ -9,14 +9,12 @@ import api from './api';
   providedIn: 'root'
 })
 export class EtiquetaService {
-  private apiUrl = api.Etiquetas; 
+  private apiUrl = api.Etiquetas; // Ajusta la URL de tu API
 
   constructor(private http: HttpClient) {}
 
-  // Método para obtener etiquetas desde la API
-  getEtiquetas(): Observable<{ nombre: string, id: number }[]> {
-    return this.http.get<{ nombre: string, id: number }[]>(this.apiUrl);
+  getEtiquetas(): Observable<{ etiquetas: { id: number, nombre: string }[] }> {
+    return this.http.get<{ etiquetas: { id: number, nombre: string }[] }>(this.apiUrl);
   }
 }
 
-  

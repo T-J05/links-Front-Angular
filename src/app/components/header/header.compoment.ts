@@ -29,18 +29,22 @@ export class HeaderComponent implements OnInit {
   }
 
   obtenerEtiquetas(): void {
-    this.etiquetaService.getEtiquetas().subscribe(
-      (etiquetas) => {
-        this.etiquetas = etiquetas;
+    this.etiquetaService.getEtiquetas().subscribe({
+      next: (data) => {
+        // Accede al array 'etiquetas' dentro de la respuesta
+        if (data && Array.isArray(data.etiquetas)) {
+          this.etiquetas = data.etiquetas;
+        } else {
+          console.error('Los datos no contienen un array de etiquetas.');
+        }
       },
-      error => {
-        console.error('Error al cargar etiquetas:', error);
+      error: (err) => {
+        console.error('Error al obtener las etiquetas:', err);
       }
-    );
+    });
   }
 
-  filtrarPorEtiqueta(etiqueta: string): void {
-    console.log(`Filtrando por: ${etiqueta}`);
-    // Implementa la lógica del filtro aquí
+  filtrarPorEtiqueta(id: number): void {
+    
   }
 }

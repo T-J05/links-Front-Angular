@@ -9,12 +9,18 @@
   </nav>
 
   <!-- Nav secundario (para filtrar enlaces) -->
-  <nav class="nav-secundario" @If="mostrarFiltro">
-    <ul>
-      @for(let etiqueta of etiquetas){}
-      <li >
-        <button (click)="filtrarPorEtiqueta(etiquetas.nombre)">{{ etiquetas.nombre }}</button>
-      </li>
-    </ul>
-  </nav>
+  @if (mostrarFiltro){
+    <h2>Etiquetas</h2>
+    <nav class="nav-secundario" >
+   
+      <ul>
+        @for (etiqueta of etiquetas; track etiqueta.id) {      
+          <li >
+          <button (click)="filtrarPorEtiqueta(etiqueta.id)">{{ etiqueta.nombre }}</button>
+        </li>}
+  
+      </ul>
+    </nav>
+  }
+  
 </header>

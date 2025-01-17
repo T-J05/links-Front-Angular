@@ -1,5 +1,9 @@
-<section>
-    <h1>Bienvenido a la Lista de Enlaces</h1>
-    <p>{{mensaje}}</p>
-  </section>
-  
+@for (enlace of enlaces; track enlace.id){
+  <div >
+    <h3>{{ enlace.titulo }}</h3>
+    <p>Etiqueta: {{ enlace.etiqueta }}</p>
+    <a [href]="enlace.url" target="_blank">{{ enlace.url }}</a><br>
+    <a [routerLink]="['/detalle', enlace.id]">Ver detalles</a>
+  </div>
+}
+
