@@ -1,21 +1,20 @@
 <header>
-    <!-- Nav principal -->
-    <nav class="nav-principal">
-      <h1>AlLinks</h1>
-      <ul>
-        <li><a routerLink="/" routerLinkActive="active">Inicio</a></li>
-        <li><a routerLink="/detalles" routerLinkActive="active">Detalles</a></li>
-        <li><a routerLink="/crearEnlace" routerLinkActive="active">Crear Enlace</a></li>
-      </ul>
-    </nav>
-  
-    <!-- Nav secundario (para filtrar enlaces) -->
-    <nav class="nav-secundario" *ngIf="mostrarFiltro">
-      <ul>
-        <li *ngFor="let etiqueta of etiquetas">
-          <button (click)="filtrarPorEtiqueta(etiqueta)">{{ etiqueta.nombre }}</button>
-        </li>
-      </ul>
-    </nav>
-  </header>
-  
+  <!-- Nav principal -->
+  <nav class="nav-principal">
+    <h1>AlLinks</h1>
+    <ul>
+      <li><a routerLink="/" routerLinkActive="active">Inicio</a></li>
+      <li><a routerLink="/crearEnlace" routerLinkActive="active">Crear Enlace</a></li>
+    </ul>
+  </nav>
+
+  <!-- Nav secundario (para filtrar enlaces) -->
+  <nav class="nav-secundario" @If="mostrarFiltro">
+    <ul>
+      @for(let etiqueta of etiquetas){}
+      <li >
+        <button (click)="filtrarPorEtiqueta(etiquetas.nombre)">{{ etiquetas.nombre }}</button>
+      </li>
+    </ul>
+  </nav>
+</header>

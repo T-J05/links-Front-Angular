@@ -1,16 +1,7 @@
 <!-- app.component.html -->
-<div style="text-align:center">
-    <h1>{{ title }}</h1> <!-- Muestra el valor de la propiedad 'title' del componente -->
-    <p>Bienvenido a mi aplicación Angular</p>
-  
-    <!-- Enlaces a otras vistas de la aplicación (si tienes rutas configuradas) -->
-    <nav>
-      <ul>
-        <li><a routerLink="/">Inicio</a></li>  <!-- Ruta para la vista principal -->
-        <li><a routerLink="/about">Acerca de</a></li>  <!-- Ruta para la vista de "Acerca de" -->
-      </ul>
-    </nav>
-  
-    <!-- Contenedor para mostrar los componentes de las rutas configuradas -->
-    <router-outlet></router-outlet>  <!-- El contenido cambia según la ruta seleccionada -->
-  </div>
+<app-header></app-header>
+
+<!-- Otros contenidos de tu aplicación -->
+<div>
+  <router-outlet></router-outlet>
+</div>
