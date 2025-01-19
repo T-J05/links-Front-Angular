@@ -1,0 +1,15 @@
+
+<h4>Enlaces Filtrados</h4>
+@if (enlaces.length === 0){
+    <p>Sin enlaces para esta etiqueta</p>
+}
+@for (enlace of enlaces; track enlace.id){
+    <div >
+      <h3>{{ enlace.titulo }}</h3>
+      <p>Etiqueta: {{ enlace.etiqueta }}</p>
+      <a [href]="enlace.url" target="_blank">{{ enlace.url }}</a><br>
+      <a [routerLink]="['/detalle', enlace.id]">Ver detalles</a>
+    </div>
+  }
+  
+  

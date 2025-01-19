@@ -1,0 +1,22 @@
+<form [formGroup]="AddLinkForm" (ngSubmit)="enviarFormulario()">
+    <label for="url">URL:</label>
+    <input id="url" formControlName="url" type="text" />
+  
+    <label for="titulo">Título:</label>
+    <input id="titulo" formControlName="titulo" type="text" />
+  
+    <label for="etiquetas">Etiquetas:</label>
+  <select id="etiquetas" formControlName="etiquetas">
+    @for (etiqueta of etiquetasD; track $index )
+    {
+    <option [value]="etiqueta.nombre">
+      {{ etiqueta.nombre }}
+    </option>}
+  </select>
+  
+    <label for="descripcion">Descripción:</label>
+    <textarea id="descripcion" formControlName="descripcion"></textarea>
+  
+    <button type="submit">Enviar</button>
+  </form>
+  

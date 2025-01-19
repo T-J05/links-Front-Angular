@@ -1,0 +1,40 @@
+@if (!enlace) {
+    <div>
+      <p>Cargando detalles...</p>
+    </div>
+  } 
+  @if (enlace) {
+    <div>
+      <details open>
+        <summary>
+          {{ enlace.titulo }}
+        </summary>
+        <p>Etiqueta: {{ enlace.etiquetas?.[0]?.nombre || 'Sin etiquetas' }}</p>
+        <a [href]="enlace.url" target="_blank">{{ enlace.url }}</a><br />
+        <p>{{enlace.descripcion}}</p>
+        <app-button-vote [enlaceId]="enlace.id"></app-button-vote>
+        <h4>Comentarios:</h4>
+        @if (enlace.comentarios.length > 0) {
+          <div>
+            <ul>
+              @for (comentario of enlace.comentarios; track $index ) {
+                <li>
+                  {{ comentario.contenido }}
+                </li>
+              }
+            </ul>
+          </div>
+        } @else {
+          <div>
+            <p>No hay comentarios disponibles.</p>
+          </div>
+        }
+            <!-- Componente para agregar comentarios -->
+        <app-add-comment 
+        [enlaceId]="enlace.id" 
+        (comentarioAgregado)="actualizarComentarios($event)">
+        </app-add-comment>
+      </details>
+    </div>
+  }
+  

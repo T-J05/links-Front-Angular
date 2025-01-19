@@ -10,7 +10,11 @@
 
   <!-- Nav secundario (para filtrar enlaces) -->
   @if (mostrarFiltro){
+
     <h2>Etiquetas</h2>
+    @if (etiquetas.length === 0){
+      <p>Sin etiquetas disponibles</p>
+    }
     <nav class="nav-secundario" >
    
       <ul>

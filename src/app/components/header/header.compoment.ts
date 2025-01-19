@@ -19,7 +19,7 @@ export class HeaderComponent implements OnInit {
     // Escucha los cambios de ruta para decidir si mostrar el filtro
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
-        this.mostrarFiltro = event.url === '/filtro/:id' || event.url === '/';
+        this.mostrarFiltro = event.url.includes('/filtro/') || event.url === '/';
       }
     });
   }
@@ -45,6 +45,7 @@ export class HeaderComponent implements OnInit {
   }
 
   filtrarPorEtiqueta(id: number): void {
-    
+    this.router.navigate([`/filtro/${id}`]);
+   
   }
 }

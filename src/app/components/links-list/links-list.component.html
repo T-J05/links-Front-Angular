@@ -1,3 +1,7 @@
+<h4>Enlaces</h4>
+@if (enlaces.length === 0){
+  <p>Sin enlaces disponibles</p>
+}
 @for (enlace of enlaces; track enlace.id){
   <div >
     <h3>{{ enlace.titulo }}</h3>
