@@ -9,7 +9,8 @@
         <summary>
           {{ enlace.titulo }}
         </summary>
-        <p>Etiqueta: {{ enlace.etiquetas?.[0]?.nombre || 'Sin etiquetas' }}</p>
+      
+        <p>Etiqueta: {{ enlace.etiquetas[0].etiqueta.nombre|| 'Sin etiquetas' }}</p>
         <a [href]="enlace.url" target="_blank">{{ enlace.url }}</a><br />
         <p>{{enlace.descripcion}}</p>
         <app-button-vote [enlaceId]="enlace.id"></app-button-vote>
